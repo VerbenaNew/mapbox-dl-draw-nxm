@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [90, 50],
+                        [90, 30],
+                        [120, 30],
+                        [120, 40],
+                        [120, 50],
+                        [90, 50]
+                    ]
+                ]
+            },
+            "properties": {
+                "Id": 1
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [120, 30],
+                        [150, 30],
+                        [150, 50],
+                        [120, 50],
+                        [120, 30]
+                    ]
+                ]
+            },
+            "properties": {
+                "Id": 0
+            }
+        }
+    ]
+}

@@ -1,0 +1,241 @@
+﻿{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": {
+        "message": "Foo",
+        "iconSize": [35, 40],
+        "name": "西郊机场",
+        "src": "img/jzw1.jpg",
+        "application": "救援",
+        "id": 11,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.26, 39.97]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Bar",
+        "iconSize": [35, 40],
+        "name": "世贸天阶",
+        "src": "img/jzw2.jpg",
+        "application": "医疗",
+        "id": 21,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.44, 39.92]
+      }
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Bar",
+        "iconSize": [35, 40],
+        "name": "右安门商务大厦",
+        "src": "img/jzw3.jpg",
+        "application": "医疗",
+        "id": 22,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.36, 39.98]
+      }
+
+
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Bar",
+        "iconSize": [35, 40],
+        "name": "风尚广场",
+        "src": "img/jzw4.jpg",
+        "application": "救援",
+        "id": 12,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.41, 39.94]
+      }
+
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Baz",
+        "iconSize": [35, 40],
+        "name": "国际体育场",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "id": 31,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.64, 40.09]
+      }
+
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Baz",
+        "iconSize": [35, 40],
+        "name": "国际会议中心",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "id": 31,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.40, 39.99]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Bar",
+        "iconSize": [35, 40],
+        "name": "望京大厦",
+        "src": "img/jzw4.jpg",
+        "application": "救援",
+        "id": 12,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.47, 39.99]
+      }
+
+
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Baz",
+        "iconSize": [35, 40],
+        "name": "金泰大厦",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "id": 31,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.37, 39.87]
+      }
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Baz",
+        "iconSize": [35, 40],
+        "name": "中远大厦",
+        "src": "img/jzw5.jpg",
+        "application": "医疗",
+        "id": 31,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.52, 39.89]
+      }
+
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Baz",
+        "iconSize": [35, 40],
+        "name": "世界公园",
+        "src": "img/jzw5.jpg",
+        "application": "医疗",
+        "id": 31,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.28, 39.81]
+      }
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Baz",
+        "iconSize": [35, 40],
+        "name": "万兴大厦",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "id": 31,
+        "address": "北京市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.32, 39.84]
+      }
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Baz",
+        "iconSize": [35, 40],
+        "name": "成都双流国际机场",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "address": "四川省成都市",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.953616, 30.57306]
+      }
+
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "message": "Baz",
+        "iconSize": [35, 40],
+        "name": "北京密云机场",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "address": "北京市密云区",
+        "telephone": 1234567889
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.88636, 40.399944]
+      }
+
+    }
+  ]
+}

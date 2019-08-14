@@ -1,0 +1,301 @@
+[{
+    "geometry": {
+        "type": "Point",
+        "coordinates": [102.29833602905273, 40.911436954156414]
+    },
+    "type": "Feature",
+    "properties": {
+        "meta": "vertex",
+        "parent": "7be64d579cda3a668a61aa97afddc53a",
+        "coord_path": "0.25",
+        "active": "false"
+    },
+    "layer": {
+        "id": "gl-draw-polygon-and-line-vertex-inactive.cold",
+        "type": "circle",
+        "source": "mapbox-gl-draw-cold",
+        "filter": ["all", ["==", "meta", "vertex"],
+            ["==", "$type", "Point"],
+            ["!=", "mode", "static"]
+        ],
+        "paint": {
+            "circle-radius": 3,
+            "circle-color": "#fbb03b"
+        }
+    }
+}, {
+    "geometry": {
+        "type": "Point",
+        "coordinates": [102.29833602905273, 40.911436954156414]
+    },
+    "type": "Feature",
+    "properties": {
+        "meta": "vertex",
+        "parent": "1a38d9b25380df1ba3c7e80aa1583b29",
+        "coord_path": "0.554",
+        "active": "false"
+    },
+    "layer": {
+        "id": "gl-draw-polygon-and-line-vertex-inactive.cold",
+        "type": "circle",
+        "source": "mapbox-gl-draw-cold",
+        "filter": ["all", ["==", "meta", "vertex"],
+            ["==", "$type", "Point"],
+            ["!=", "mode", "static"]
+        ],
+        "paint": {
+            "circle-radius": 3,
+            "circle-color": "#fbb03b"
+        }
+    }
+}, {
+    "geometry": {
+        "type": "Point",
+        "coordinates": [102.29833602905273, 40.911436954156414]
+    },
+    "type": "Feature",
+    "properties": {
+        "meta": "vertex",
+        "parent": "7be64d579cda3a668a61aa97afddc53a",
+        "coord_path": "0.25",
+        "active": "false"
+    },
+    "layer": {
+        "id": "gl-draw-polygon-and-line-vertex-stroke-inactive.cold",
+        "type": "circle",
+        "source": "mapbox-gl-draw-cold",
+        "filter": ["all", ["==", "meta", "vertex"],
+            ["==", "$type", "Point"],
+            ["!=", "mode", "static"]
+        ],
+        "paint": {
+            "circle-radius": 5,
+            "circle-color": "#fff"
+        }
+    }
+}, {
+    "geometry": {
+        "type": "Point",
+        "coordinates": [102.29833602905273, 40.911436954156414]
+    },
+    "type": "Feature",
+    "properties": {
+        "meta": "vertex",
+        "parent": "1a38d9b25380df1ba3c7e80aa1583b29",
+        "coord_path": "0.554",
+        "active": "false"
+    },
+    "layer": {
+        "id": "gl-draw-polygon-and-line-vertex-stroke-inactive.cold",
+        "type": "circle",
+        "source": "mapbox-gl-draw-cold",
+        "filter": ["all", ["==", "meta", "vertex"],
+            ["==", "$type", "Point"],
+            ["!=", "mode", "static"]
+        ],
+        "paint": {
+            "circle-radius": 5,
+            "circle-color": "#fff"
+        }
+    }
+}, {
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [102.91751861572266, 41.244772343082076],
+                [102.78757095336914, 41.179299982626304],
+                [102.62929916381836, 41.07313973329343],
+                [102.45248794555664, 40.97925009648773],
+                [102.29833602905273, 40.911436954156414],
+                [102.12530136108398, 40.817187058745816],
+                [102.01131820678711, 40.752978917176875],
+                [101.93990707397461, 40.71044262551291],
+                [101.87862396240234, 40.63896734381723],
+                [101.77888870239258, 40.53193696300883],
+                [101.64121627807617, 40.50583784812082],
+                [101.54165267944336, 40.423820597330376],
+                [101.42269134521484, 40.42159899302459],
+                [101.25875473022461, 40.47502782509255],
+                [101.07524871826172, 40.45021286796802],
+                [100.8984375, 40.44642451553466],
+                [100.8984375, 41.244772343082076],
+                [102.91751861572266, 41.244772343082076]
+            ]
+        ]
+    },
+    "type": "Feature",
+    "properties": {
+        "id": "7be64d579cda3a668a61aa97afddc53a",
+        "meta": "feature",
+        "meta:type": "Polygon",
+        "active": "true",
+        "mode": "simple_select"
+    },
+    "layer": {
+        "id": "gl-draw-polygon-stroke-active.cold",
+        "type": "line",
+        "source": "mapbox-gl-draw-cold",
+        "filter": ["all", ["==", "active", "true"],
+            ["==", "$type", "Polygon"]
+        ],
+        "layout": {
+            "line-cap": "round",
+            "line-join": "round"
+        },
+        "paint": {
+            "line-color": "#fbb03b",
+            "line-dasharray": [0.2, 2],
+            "line-width": 2
+        }
+    }
+}, {
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [100.8984375, 39.63953756436669],
+                [100.8984375, 40.44642451553466],
+                [101.07524871826172, 40.45021286796802],
+                [101.25875473022461, 40.47502782509255],
+                [101.42269134521484, 40.42159899302459],
+                [101.54165267944336, 40.423820597330376],
+                [101.64121627807617, 40.50583784812082],
+                [101.77888870239258, 40.53193696300883],
+                [101.87862396240234, 40.63896734381723],
+                [101.93990707397461, 40.71044262551291],
+                [102.01131820678711, 40.752978917176875],
+                [102.15808868408203, 40.835242530237],
+                [102.29833602905273, 40.911436954156414],
+                [102.45248794555664, 40.97925009648773],
+                [102.62929916381836, 41.07313973329343],
+                [102.78757095336914, 41.179299982626304],
+                [102.91751861572266, 41.244772343082076],
+                [103.0078125, 41.244772343082076],
+                [103.0078125, 39.63953756436669],
+                [100.8984375, 39.63953756436669]
+            ]
+        ]
+    },
+    "type": "Feature",
+    "properties": {
+        "id": "1a38d9b25380df1ba3c7e80aa1583b29",
+        "meta": "feature",
+        "meta:type": "Polygon",
+        "active": "true",
+        "mode": "simple_select"
+    },
+    "layer": {
+        "id": "gl-draw-polygon-stroke-active.cold",
+        "type": "line",
+        "source": "mapbox-gl-draw-cold",
+        "filter": ["all", ["==", "active", "true"],
+            ["==", "$type", "Polygon"]
+        ],
+        "layout": {
+            "line-cap": "round",
+            "line-join": "round"
+        },
+        "paint": {
+            "line-color": "#fbb03b",
+            "line-dasharray": [0.2, 2],
+            "line-width": 2
+        }
+    }
+}, {
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [102.91751861572266, 41.244772343082076],
+                [102.78757095336914, 41.179299982626304],
+                [102.62929916381836, 41.07313973329343],
+                [102.45248794555664, 40.97925009648773],
+                [102.29833602905273, 40.911436954156414],
+                [102.12530136108398, 40.817187058745816],
+                [102.01131820678711, 40.752978917176875],
+                [101.93990707397461, 40.71044262551291],
+                [101.87862396240234, 40.63896734381723],
+                [101.77888870239258, 40.53193696300883],
+                [101.64121627807617, 40.50583784812082],
+                [101.54165267944336, 40.423820597330376],
+                [101.42269134521484, 40.42159899302459],
+                [101.25875473022461, 40.47502782509255],
+                [101.07524871826172, 40.45021286796802],
+                [100.8984375, 40.44642451553466],
+                [100.8984375, 41.244772343082076],
+                [102.91751861572266, 41.244772343082076]
+            ]
+        ]
+    },
+    "type": "Feature",
+    "properties": {
+        "id": "7be64d579cda3a668a61aa97afddc53a",
+        "meta": "feature",
+        "meta:type": "Polygon",
+        "active": "true",
+        "mode": "simple_select"
+    },
+    "layer": {
+        "id": "gl-draw-polygon-fill-active.cold",
+        "type": "fill",
+        "source": "mapbox-gl-draw-cold",
+        "filter": ["all", ["==", "active", "true"],
+            ["==", "$type", "Polygon"]
+        ],
+        "paint": {
+            "fill-color": "#fbb03b",
+            "fill-outline-color": "#fbb03b",
+            "fill-opacity": 0.1
+        }
+    }
+}, {
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [100.8984375, 39.63953756436669],
+                [100.8984375, 40.44642451553466],
+                [101.07524871826172, 40.45021286796802],
+                [101.25875473022461, 40.47502782509255],
+                [101.42269134521484, 40.42159899302459],
+                [101.54165267944336, 40.423820597330376],
+                [101.64121627807617, 40.50583784812082],
+                [101.77888870239258, 40.53193696300883],
+                [101.87862396240234, 40.63896734381723],
+                [101.93990707397461, 40.71044262551291],
+                [102.01131820678711, 40.752978917176875],
+                [102.15808868408203, 40.835242530237],
+                [102.29833602905273, 40.911436954156414],
+                [102.45248794555664, 40.97925009648773],
+                [102.62929916381836, 41.07313973329343],
+                [102.78757095336914, 41.179299982626304],
+                [102.91751861572266, 41.244772343082076],
+                [103.0078125, 41.244772343082076],
+                [103.0078125, 39.63953756436669],
+                [100.8984375, 39.63953756436669]
+            ]
+        ]
+    },
+    "type": "Feature",
+    "properties": {
+        "id": "1a38d9b25380df1ba3c7e80aa1583b29",
+        "meta": "feature",
+        "meta:type": "Polygon",
+        "active": "true",
+        "mode": "simple_select"
+    },
+    "layer": {
+        "id": "gl-draw-polygon-fill-active.cold",
+        "type": "fill",
+        "source": "mapbox-gl-draw-cold",
+        "filter": ["all", ["==", "active", "true"],
+            ["==", "$type", "Polygon"]
+        ],
+        "paint": {
+            "fill-color": "#fbb03b",
+            "fill-outline-color": "#fbb03b",
+            "fill-opacity": 0.1
+        }
+    }
+}]

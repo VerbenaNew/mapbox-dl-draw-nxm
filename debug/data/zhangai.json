@@ -1,0 +1,73 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "message": "Baz",
+          "iconSize": [35, 40]
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [108.940624 ,34.283888]
+        },
+        "name": "仲裁大厦",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "address": "西安市",
+        "telephone": 1234567889 
+  
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "message": "Baz",
+          "iconSize": [35, 40]
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [113.6556 ,34.75314]
+        },
+        "name": "新田时代广场",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "address": "郑州市",
+        "telephone": 1234567889 
+  
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "message": "Baz",
+          "iconSize": [35, 40]
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [116.892096, 36.669]
+        },
+        "name": "绿地中央广场",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "address": "济南市",
+        "telephone": 1234567889 
+  
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "message": "Baz",
+          "iconSize": [35, 40]
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [114.497944, 38.06268]
+        },
+        "name": "冀兴大厦",
+        "src": "img/jzw5.jpg",
+        "application": "其他",
+        "address": "石家庄市",
+        "telephone": 1234567889 
+      }
+    ]
+  }
+  
