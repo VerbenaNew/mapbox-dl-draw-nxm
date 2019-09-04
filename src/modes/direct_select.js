@@ -95,11 +95,7 @@ DirectSelect.onVertex = function (state, e) {
     this.map.fire('noFeatureSelect');
     state.selectedCoordPaths.push(about.coord_path);
   }
-  if (state.featureIds.length < 2) {
-    this._ctx.options.openMessage('不是公共边上的节点，不可以移动');
-    this.changeMode(Constants.modes.SIMPLE_SELECT);
-    return
-  }
+ 
   //如果选中多个节点。提示返回
   if (state.selectedCoordPaths2.length > state.featureIds.length) {
     this._ctx.options.openMessage('选中多个节点，不可以移动，可按delete删除，或者选择其他节点');
@@ -248,11 +244,7 @@ DirectSelect.dragVertex = function (state, e, delta) {
   // state.features = [];
   // debugger
   const features = state.features;
-  if (features.length < 2) {
-    // this._ctx.options.openMessage('不是公共边上的节点，不可以移动');
-    this.changeMode(Constants.modes.SIMPLE_SELECT);
-    return
-  }
+
   //如果选中多个节点。提示返回
   if (state.selectedCoordPaths2.length > state.featureIds.length) {
     // this._ctx.options.openMessage('选中多个节点，不可以移动，选择其他节点或请放大后选中节点');

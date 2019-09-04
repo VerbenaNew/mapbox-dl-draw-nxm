@@ -6,7 +6,8 @@ const modes = [
   'draw_line_string',
   'snap_draw',
   'polygon_clip',
-  "create_building"
+  "create_building",
+  "rerote_building",
 ];
 
 module.exports = modes.reduce((m, k) => {
@@ -22,5 +23,6 @@ module.exports = {
   draw_line_string: require('./draw_line_string'),
   snap_draw: require('./snap_draw'),
   polygon_clip: require('./polygon_clip'),
-  create_building: require('./create_building')
+  create_building: require('./create_building'),
+  rerote_building:require('./rerote_building')
 };

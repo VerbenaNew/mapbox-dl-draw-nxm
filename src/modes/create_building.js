@@ -39,100 +39,10 @@ CreateBuilding.onSetup = function () {
 
 CreateBuilding.clickAnywhere = function (state, e) {
   if (state.currentVertexPosition > 0 && isEventAtCoordinates(e, state.polygon.coordinates[0][state.currentVertexPosition - 1])) {
-    //测试面切割--wzy
-    var selectedFeatures = this.getSelected();
-    var len = selectedFeatures.length;
-    //只能切一个
-    if (len != 1) {
-      this._ctx.options.openMessage('不可选择多个面');
-      this.deleteFeature([state.polygon.id]);
-      this.changeMode(Constants.modes.SIMPLE_SELECT);
-      return
-    }
-    if (state.currentVertexPosition > 0 && isEventAtCoordinates(e, state.polygon.coordinates[0][state.currentVertexPosition - 1])) {
-      this.map.fire('createBuilding', {
-        features: state.polygon.toGeoJSON(),
-      });
+    
       return this.changeMode(Constants.modes.SIMPLE_SELECT, {
         featureIds: [state.polygon.id]
       });
-      var feature = selectedFeatures[0].toGeoJSON();
-      var originType = feature.geometry.type;
-      var deleteId = feature.id;
-      var corr_new = [];
-      if (feature.geometry.type == 'Polygon') {
-        var coordinates_outer = feature.geometry.coordinates;
-        for (var i = 0; i < coordinates_outer.length; i++) {
-          corr_new.push(coordinates_outer[i])
-        }
-        var feature_outer = feature;
-      } else {
-        var coordinates_outer = feature.geometry.coordinates[0];
-        for (var i = 0; i < coordinates_outer.length; i++) {
-          corr_new.push(coordinates_outer[i])
-        }
-        var feature_outer = helpers.polygon(coordinates_outer)
-      }
-      if (isContain(feature_outer, state.polygon)) {
-        state.polygon.toGeoJSON().geometry.coordinates.reverse();
-        if (originType == 'Polygon') {
-          corr_new.push(state.polygon.toGeoJSON().geometry.coordinates[0]);
-          var json = {
-            type: "Feature",
-            geometry: {
-              "type": "Polygon",
-              "coordinates": corr_new,
-
-            },
-            "properties": feature.properties
-          }
-          // Draw.add(json);
-          if (json.geometry.coordinates.length >= 2) {
-            this.deleteFeature([deleteId]);
-          }
-        } else {
-          corr_new.push(state.polygon.toGeoJSON().geometry.coordinates[0]);
-          var json = {
-            type: "Feature",
-            geometry: {
-              "type": "MultiPolygon",
-              "coordinates": [
-                corr_new
-              ]
-
-            },
-            "properties": feature.properties
-          }
-          // Draw.add(json);
-          var polygon_new = state.polygon.toGeoJSON();
-          polygon_new.geometry.type = 'MultiPolygon';
-          polygon_new.geometry.coordinates = [polygon_new.geometry.coordinates];
-          // polygon_new.properties['ORG_AREA_CODE'] = feature.properties.AREA_CODE;
-          // polygon_new.properties['NAME'] = feature.properties.NAME;
-          // polygon_new.properties['state']=1;
-          delete polygon_new.id;
-          // Draw.add(polygon_new);
-          this.map.fire("polygonSlice", {
-            sliced: [json, polygon_new]
-          });
-          if (json.geometry.coordinates[0].length >= 2) {
-            this.deleteFeature([deleteId, state.polygon.id]);
-          }
-        }
-
-        // console.log(json)
-
-      } else {
-        this.deleteFeature([state.polygon.id], {
-          silent: true
-        });
-        this._ctx.options.openMessage('不在所选面内，绘制失败！');
-        return this.changeMode(Constants.modes.SIMPLE_SELECT, {
-          featureIds: [state.polygon.id]
-        });
-      }
-
-    }
 
   }
   this.updateUIClasses({
@@ -178,6 +88,9 @@ CreateBuilding.onKeyUp = function (state, e) {
 };
 
 CreateBuilding.onStop = function (state) {
+   this.map.fire('createBuilding', {
+        features: state.polygon.toGeoJSON(),
+      });
   this.updateUIClasses({
     mouse: Constants.cursors.POLYGONCUT
   });

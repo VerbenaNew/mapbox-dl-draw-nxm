@@ -59,12 +59,19 @@ module.exports = function (ctx) {
     const contain = document.createElement('span');
     const button = document.createElement('span');
     const textspan = document.createElement('span');
+    const rightLine = document.createElement('span');
+
+    contain.className = "draw-span-container";
+
     button.className = `${Constants.classes.CONTROL_BUTTON} ${options.className}`;
     textspan.className = "draw-button-text";
+    rightLine.className = "draw-button-right-line";
+
     button.setAttribute('title', options.title);
     textspan.innerHTML = options.label;
     contain.appendChild(textspan);
     contain.appendChild(button);
+    contain.appendChild(rightLine);
     options.container.appendChild(contain);
 
     contain.addEventListener('click', (e) => {
@@ -81,8 +88,8 @@ module.exports = function (ctx) {
       setActiveButton(id);
       options.onActivate();
     }, true);
-
     return button;
+
   }
 
   function deactivateButtons() {
@@ -109,99 +116,7 @@ module.exports = function (ctx) {
     controlGroup.className = `${Constants.classes.CONTROL_GROUP} ${Constants.classes.CONTROL_BASE}`;
 
     if (!controls) return controlGroup;
-    if (controls.change_vertex) {
-      buttonElements.snaped = createControlButton('change_vertex', {
-        container: controlGroup,
-        className: Constants.classes.CONTROL_BUTTON_VERTEX_CHANGE,
-        title: '边界调整,ctrl+z可撤销一步,选中节点按delete可以删除节点',
-        label: "边界调整",
-        onActivate: () => {
-          // ctx.snaped = true;
-          //判断匹配过的则退回
 
-          var selectedFeatures = ctx.store.getSelected();
-          var ids = ctx.store.getSelectedIds();
-          if (selectedFeatures.length == 0) {
-            ctx.options.openMessage('没有选中要素');
-            ctx.map.fire("isOperateError");
-            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
-            return
-          }
-          if (selectedFeatures.length != 2) {
-            ctx.options.openMessage('请选中两个共边图形一起调整');
-            ctx.map.fire("isOperateError");
-            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
-            return
-          }
-          for (var i = 0; i < selectedFeatures.length; i++) {
-            if (selectedFeatures[i].properties.state && selectedFeatures[i].properties.state == 2) {
-              ctx.options.openMessage('选中的图形已匹配不可调整！');
-              ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
-              return
-            }
-            if (selectedFeatures[i].properties.state && selectedFeatures[i].properties.state == 3) {
-              ctx.options.openMessage('已完成不可编辑！');
-              ctx.map.fire("isOperateError");
-              ctx.events.changeMode(Constants.modes.SIMPLE_SELECT);
-              return
-            }
-          }
-          var currentMode = ctx.events.getMode()
-          if (currentMode != "simple_select") {
-            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
-          }
-          ctx.map.fire("changeVertexClick", {
-            ids: ids
-          })
-          ctx.events.changeVertex();
-        }
-      })
-    }
-    if (controls.add_vertex) {
-      buttonElements.snaped = createControlButton('add_vertex', {
-        container: controlGroup,
-        className: Constants.classes.CONTROL_BUTTON_ADD_VERTEX,
-        title: '添加节点，只增加节点，调整请选边界调整按钮',
-        label: "添加节点",
-        onActivate: () => {
-          // ctx.snaped = true;
-          var selectedFeatures = ctx.store.getSelected();
-          var ids = ctx.store.getSelectedIds();
-          if (selectedFeatures.length == 0) {
-            ctx.options.openMessage('没有选中要素');
-            ctx.map.fire("isOperateError");
-            return
-          }
-          // if (selectedFeatures.length == 1) {
-          //   ctx.options.openMessage('单个要素不可调整,需选中所有相邻图形一起调整');
-          //   return
-          // }
-          for (var i = 0; i < selectedFeatures.length; i++) {
-            if (selectedFeatures[i].properties.state == 2) {
-              ctx.options.openMessage('选中图形已匹配，请先取消匹配！');
-              ctx.map.fire("isOperateError");
-              ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
-              return
-            }
-            if (selectedFeatures[i].properties.state && selectedFeatures[i].properties.state == 3) {
-              ctx.options.openMessage('已完成不可编辑！');
-              ctx.map.fire("isOperateError");
-              ctx.events.changeMode(Constants.modes.SIMPLE_SELECT);
-              return
-            }
-          }
-          var currentMode = ctx.events.getMode()
-          if (currentMode != "simple_select") {
-            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
-          }
-          ctx.map.fire("changeVertexClick", {
-            ids: ids
-          })
-          ctx.events.changeVertex();
-          ctx.events.addVertex();
-        }
-      })
-    }
     if (controls.save_bounds) {
       buttonElements.snaped = createControlButton('save_bounds', {
         container: controlGroup,
@@ -336,8 +251,27 @@ module.exports = function (ctx) {
         label: '添加建筑物',
         onActivate: () => {
           // ctx.snaped = true;
-          ctx.map.fire('noFeatureSelect');
+
+          // ctx.map.fire('createBuilding');
           ctx.map.fire('splitStart');
+          var currentMode = ctx.events.getMode()
+          if (currentMode != "simple_select") {
+            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
+          }
+          ctx.events.changeMode(Constants.modes.CREATE_BUILDING);
+        }
+      })
+    }
+    if (controls.reroteBuilding) {
+      buttonElements.snaped = createControlButton('reroteBuilding', {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_RBUILDING,
+        title: '旋转建筑物，点击顺时针旋转90度',
+        label: '旋转建筑物',
+        onActivate: () => {
+          // ctx.snaped = true;
+
+          // ctx.map.fire('createBuilding');
           var selectedFeatures = ctx.store.getSelected();
           var len = selectedFeatures.length;
           if (len == 0) {
@@ -347,29 +281,141 @@ module.exports = function (ctx) {
             return
           }
           if (len > 1) {
-            ctx.options.openMessage('不可选择多个面添加');
+            ctx.options.openMessage('不可旋转多个面');
             ctx.map.fire("isOperateError");
             ctx.events.changeMode(Constants.modes.SIMPLE_SELECT);
             return
           }
-          if (selectedFeatures[0].properties.state && selectedFeatures[0].properties.state == 2) {
-            ctx.options.openMessage('选中图形已匹配，请先取消匹配！');
+          ctx.map.fire('reroteBuilding', selectedFeatures[0].id);
+          var currentMode = ctx.events.getMode();
+          if (currentMode != "simple_select") {
+            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
+          }
+        }
+      })
+    }
+    if (controls.transformBuilding) {
+      buttonElements.snaped = createControlButton('transformBuilding', {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_TBUILDING,
+        title: '平移建筑物，点击地图上的点即可平移',
+        label: '平移建筑物',
+        onActivate: () => {
+          // ctx.snaped = true;
+
+          // ctx.map.fire('createBuilding');
+          var selectedFeatures = ctx.store.getSelected();
+          var len = selectedFeatures.length;
+          if (len == 0) {
+            ctx.options.openMessage('没有选中面');
             ctx.map.fire("isOperateError");
             ctx.events.changeMode(Constants.modes.SIMPLE_SELECT);
             return
           }
-          if (selectedFeatures[0].properties.state && selectedFeatures[0].properties.state == 3) {
-            ctx.options.openMessage('已完成不可编辑！');
+          if (len > 1) {
+            ctx.options.openMessage('不可平移多个面');
             ctx.map.fire("isOperateError");
             ctx.events.changeMode(Constants.modes.SIMPLE_SELECT);
             return
           }
-          ctx.map.fire('createBuilding');
+          ctx.map.fire('transformBuilding', selectedFeatures[0].id);
+          var currentMode = ctx.events.getMode();
+          if (currentMode != "simple_select") {
+            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
+          }
+        }
+      })
+    }
+    if (controls.saveBuilding) {
+      buttonElements.snaped = createControlButton('saveBuilding', {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_SBUILDING,
+        title: '保存建筑物',
+        label: '保存建筑物',
+        onActivate: () => {
+          // ctx.snaped = true;
+
+          // ctx.map.fire('createBuilding');
+          var currentMode = ctx.events.getMode()
+          if (currentMode != "simple_select" && currentMode != "direct_select") {
+            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
+          }
+          ctx.map.fire("saveBuilding")
+        }
+      })
+    }
+    if (controls.change_vertex) {
+      buttonElements.snaped = createControlButton('change_vertex', {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_VERTEX_CHANGE,
+        title: '边界调整,ctrl+z可撤销一步,选中节点按delete可以删除节点',
+        label: "边界调整",
+        onActivate: () => {
+          // ctx.snaped = true;
+          //判断匹配过的则退回
+          var selectedFeatures = ctx.store.getSelected();
+          var ids = ctx.store.getSelectedIds();
+          if (selectedFeatures.length == 0) {
+            ctx.options.openMessage('没有选中要素');
+            ctx.map.fire("isOperateError");
+            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
+            return
+          }
           var currentMode = ctx.events.getMode()
           if (currentMode != "simple_select") {
             ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
           }
-          ctx.events.changeMode(Constants.modes.CREATE_BUILDING);
+          ctx.map.fire('startChangeVertex')
+          ctx.map.fire("changeVertexClick", {
+            ids: ids
+          })
+          ctx.events.changeVertex();
+        }
+      })
+    }
+    if (controls.add_vertex) {
+      buttonElements.snaped = createControlButton('add_vertex', {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_ADD_VERTEX,
+        title: '添加节点，只增加节点，调整请选边界调整按钮',
+        label: "添加节点",
+        onActivate: () => {
+          // ctx.snaped = true;
+          var selectedFeatures = ctx.store.getSelected();
+          var ids = ctx.store.getSelectedIds();
+          if (selectedFeatures.length == 0) {
+            ctx.options.openMessage('没有选中要素');
+            ctx.map.fire("isOperateError");
+            return
+          }
+          // if (selectedFeatures.length == 1) {
+          //   ctx.options.openMessage('单个要素不可调整,需选中所有相邻图形一起调整');
+          //   return
+          // }
+          for (var i = 0; i < selectedFeatures.length; i++) {
+            if (selectedFeatures[i].properties.state == 2) {
+              ctx.options.openMessage('选中图形已匹配，请先取消匹配！');
+              ctx.map.fire("isOperateError");
+              ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
+              return
+            }
+            if (selectedFeatures[i].properties.state && selectedFeatures[i].properties.state == 3) {
+              ctx.options.openMessage('已完成不可编辑！');
+              ctx.map.fire("isOperateError");
+              ctx.events.changeMode(Constants.modes.SIMPLE_SELECT);
+              return
+            }
+          }
+          var currentMode = ctx.events.getMode()
+          if (currentMode != "simple_select") {
+            ctx.events.changeMode(Constants.modes.SIMPLE_SELECT)
+          }
+          ctx.map.fire('startAddVertex')
+          ctx.map.fire("changeVertexClick", {
+            ids: ids
+          })
+          ctx.events.changeVertex();
+          ctx.events.addVertex();
         }
       })
     }

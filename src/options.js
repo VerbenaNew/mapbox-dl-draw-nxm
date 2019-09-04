@@ -32,7 +32,15 @@ const showControls = {
   save_bounds: true,
   undo: false,
   redo: false,
-  createBuilding: false
+  // 新建
+  createBuilding: false,
+  // 保存
+  saveBuilding: false,
+  // 旋转
+  reroteBuilding: false,
+  // 平移
+  transformBuilding: false
+
 };
 
 const hideControls = {

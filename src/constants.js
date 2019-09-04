@@ -12,6 +12,10 @@ module.exports = {
     CONTROL_BUTTON_SNAPED: 'mapbox-gl-draw_snaped',
     CONTROL_BUTTON_PCLIP: 'mapbox-gl-polygon_clip',
     CONTROL_BUTTON_CBUILDING: "mapbox-gl-create_building",
+    CONTROL_BUTTON_SBUILDING: "mapbox-gl-save_building",
+    CONTROL_BUTTON_RBUILDING: "mapbox-gl-rerote_building",
+    CONTROL_BUTTON_TBUILDING: "mapbox-gl-transform_building",
+
     CONTROL_GROUP: 'mapboxgl-ctrl-group-draw',
     ATTRIBUTION: 'mapboxgl-ctrl-attrib',
     ACTIVE_BUTTON: 'active',
@@ -59,7 +63,8 @@ module.exports = {
     SNAP_DRAW: 'snap_draw',
     POLYGON_CLIP: 'polygon_clip',
     STATIC: 'static',
-    CREATE_BUILDING: "create_building"
+    CREATE_BUILDING: "create_building",
+    REROTE_BUILDING: "rerote_building"
   },
   events: {
     CREATE: 'draw.create',

@@ -3,7 +3,6 @@ const doubleClickZoom = require('../lib/double_click_zoom');
 const Constants = require('../constants');
 const isEventAtCoordinates = require('../lib/is_event_at_coordinates');
 const createVertex = require('../lib/create_vertex');
-
 const DrawPolygon = {};
 
 DrawPolygon.onSetup = function () {
@@ -37,10 +36,14 @@ DrawPolygon.onSetup = function () {
 };
 
 DrawPolygon.clickAnywhere = function (state, e) {
+  
   var features = ctx.store.getSelectedIds().map(id => ctx.store.get(id)).map(feature => feature.toGeoJSON());
 
   if (state.currentVertexPosition > 0 && isEventAtCoordinates(e, state.polygon.coordinates[0][state.currentVertexPosition - 1])) {
     this.map.fire('createPolygon', {
+      features: [state.polygon.toGeoJSON()],
+    });
+     this.map.fire('createBuilding', {
       features: [state.polygon.toGeoJSON()],
     });
     return this.changeMode(Constants.modes.SIMPLE_SELECT, {

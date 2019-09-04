@@ -193,7 +193,7 @@ module.exports = function (ctx) {
       ctx.map.off("click", ctx.options.clickFunction)
     }
     //如果是由选择切换到线切割则不清除已选要素--wzy20180228
-    var isLineClip = currentModeName == 'simple_select' && (modename == 'draw_line_string' || modename == 'snap_draw' || modename == 'polygon_clip' || modename == 'create_building');
+    var isLineClip = currentModeName == 'simple_select' && (modename == 'draw_line_string' || modename == 'snap_draw' || modename == 'polygon_clip' );
     if (!isLineClip) {
       currentMode.stop();
     } else {

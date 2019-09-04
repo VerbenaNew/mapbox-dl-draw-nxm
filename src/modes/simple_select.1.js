@@ -144,7 +144,6 @@ SimpleSelect.onMouseOut = function (state) {
 SimpleSelect.onTap = SimpleSelect.onClick = function (state, e) {
   //如果选中面并且至选中1个面时则fire事件featureSelect
   // Click (with or without shift) on no feature
-  debugger
   if (CommonSelectors.isFeature(e) && (e.featureTarget._geometry.type == 'Polygon' || e.featureTarget._geometry.type == 'MultiPolygon') && e.featureTarget2.length == 1) {
     this.map.fire('PolygonSelect', {
       obj: e.featureTarget,
@@ -160,7 +159,7 @@ SimpleSelect.onTap = SimpleSelect.onClick = function (state, e) {
     if (CommonSelectors.isFeature(e)) return this.clickOnFeature(state, e);
   } else {
     var ids = [];
-    var vertexs=[];
+    var vertexs = [];
     var target2 = e.featureTarget2;
     target2.forEach(fea => {
       if (fea.properties.meta === "feature") {
@@ -171,15 +170,15 @@ SimpleSelect.onTap = SimpleSelect.onClick = function (state, e) {
     ids.forEach(id => {
       target2.forEach(fea => {
         if (fea.properties.parent && id == fea.properties.parent && fea.properties.meta == "vertex")
-        vertexs.push(fea);
+          vertexs.push(fea);
       });
     });
     //如果没有点到节点，则查看范围内的要素是不是被选中要素，如果是则给被选中要素分别添加点--wzy20180426
-    if(vertexs.length==0){
+    if (vertexs.length == 0) {
 
     }
     //如果已经有节点切所有选择要素的有这个节点则不处理--wzy20180426
-    if(vertexs.length==ids.length){
+    if (vertexs.length == ids.length) {
       this.clearSelectedFeatures();
     }
   }

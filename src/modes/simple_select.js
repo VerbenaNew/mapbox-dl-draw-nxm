@@ -111,7 +111,7 @@ SimpleSelect.stopExtendedInteractions = function (state) {
 
   state.boxSelecting = false;
   state.canBoxSelect = false;
-  state.dragMoving = false;
+  state.dragMoving = true;
   state.canDragMove = false;
 };
 
@@ -308,11 +308,6 @@ SimpleSelect.clickOnVertex = function (state, e) {
   if (!state.isAddVertex) {
     //如果当前选中节点不在公共边上则提示后，返回
     var ids_sele = this.getSelectedIds();
-    if (featureIds.length < 2) {
-      this._ctx.options.openMessage('不是公共边上的节点，不可以移动');
-      this.changeMode(Constants.modes.SIMPLE_SELECT);
-      return
-    }
     // var diff_fea=ids_sele.concat(featureIds).filter(v => !ids_sele.includes(v) || !vertex_parents.includes(v));
     if (ids_sele.length != 0) {
       var isidSame = ids_sele.sort().toString() == featureIds.sort().toString();
